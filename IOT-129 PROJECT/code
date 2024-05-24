@@ -1,0 +1,23 @@
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  digitalWrite(5,HIGH);
+}
+
+void loop() {
+  Serial.println(analogRead(A0));
+  if(analogRead(A0)>400)
+  {
+    analogWrite(3,60);
+    digitalWrite(5,LOW);
+    delay(2000);
+    analogWrite(3,0);
+    digitalWrite(5,HIGH);
+    delay(2000);
+  }
+  
+}
